@@ -2,6 +2,7 @@
 using namespace std;
 
 #define For(i, lo, hi) for(ll i = lo; i < (ll)(hi); ++i)
+#define sz(x) ((ll)size(x))
 #define all(x) begin(x), end(x)
 #define vec vector
 using ll = long long;
