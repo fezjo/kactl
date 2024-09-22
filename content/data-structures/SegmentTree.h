@@ -17,7 +17,7 @@ struct Tree {
 	vector<T> s; int n;
 	Tree(int n = 0, T def = unit) : s(2*n, def), n(n) {}
 	void update(int pos, T val) {
-		for (s[pos += n] = val; pos /= 2;)
+		for (s[pos += n] = val; pos /= 2;) // "= val" is set update
 			s[pos] = f(s[pos * 2], s[pos * 2 + 1]);
 	}
 	T query(int b, int e) { // query [b, e)
