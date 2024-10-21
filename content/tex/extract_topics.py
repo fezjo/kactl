@@ -1,9 +1,11 @@
 import PyPDF2
 
+UNIVERSITY = "UVA"
+
 # Function to extract topics from the top of a page's content
 def extract_topics_from_top(text, max_lines=5):
     parts = text.splitlines()[0].split()
-    if not parts or parts[0] != "Matfyz" or not parts[-1].isnumeric():
+    if not parts or parts[0] != UNIVERSITY or not parts[-1].isnumeric():
         print(f"Ignoring header: {parts}")
         return
     matfyz, *topics, pgnum = parts
@@ -32,8 +34,13 @@ pdf_path = 'kactl.pdf'
 # Extract topics and print them in the required format
 topics_per_page = extract_topics_from_pdf(pdf_path)
 # output pretty latex code, all topics on the same line
+print("\n" + "-"*40 + "\n")
 print("\\begin{itemize}[noitemsep]")
 print("\\raggedright")
 for page, topics in topics_per_page.items():
-    print(f"    \\item \\textbf{{Page {page:>2}:}} {', '.join(topics)}")
+    pgnum = "\\ " * (2 - len(page)) + page
+    print(f"    \\item \\texttt{{p.{pgnum}:}} {', '.join(topics)}")
 print("\\end{itemize}")
+
+print("% TODO: add chapters")
+print("% TODO: add sections from Mathematics and Combinatorial")
