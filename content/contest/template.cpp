@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define For(i, lo, hi) for (ll i = lo; i < (ll)(hi); ++i)
+#define rep(i, lo, hi) for (ll i = lo; i < (ll)(hi); ++i)
 #define all(x) begin(x), end(x)
 #define sz(x) ((ll)size(x))
 #define vec vector
@@ -29,5 +29,5 @@ int main() {
   cin.exceptions(cin.failbit);
   ll TC = 1;
   // cin >> TC;
-  For(i, 0, TC) solve();
+  rep(i, 0, TC) solve();
 }
